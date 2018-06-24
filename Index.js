@@ -2,6 +2,7 @@ const HTTP = require ("http");
 const Path = require ("path");
 const FS = require ("fs");
 
+let ServerRootFolder;
 
 const ConfigureMIMEType = FilePath => {
 
@@ -25,12 +26,12 @@ const ConfigureFilePath = FilePath => {
 
 	if (FilePath === "/") {
 
-		FilePath = `${__dirname}/index.html`;
+		FilePath = `${ServerRootFolder}/index.html`;
 	} else {
 
 		const Slash = FilePath.split ("")[FilePath.split ("").length - 1] === "/";
 
-		FilePath = (Slash ? `${__dirname}${FilePath.slice (0, -1)}` : `${__dirname}${FilePath}`);
+		FilePath = (Slash ? `${ServerRootFolder}${FilePath.slice (0, -1)}` : `${ServerRootFolder}${FilePath}`);
 	}
 
 	return FilePath;
@@ -73,5 +74,14 @@ const Server = HTTP.createServer ((Request, Response) => {
 });
 
 
-module.exports.Start = (Port) => Server.listen (Port);
+module.exports.Start = (RootFolder, Port = 8000) => {
+
+	if (!RootFolder) {
+
+		throw new Error ("RootFolder must be especified");
+	}
+
+	ServerRootFolder = RootFolder;
+	Server.listen (Port);
+};
 module.exports.Stop = () => process.exit ();
