@@ -1,6 +1,6 @@
 {
   "name": "serve-here.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Serve static files over HTTP",
   "main": "Index.js",
   "scripts": {
