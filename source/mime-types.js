@@ -121,8 +121,8 @@ class MimeTypes {
 
 	static Get (Extension) {
 
-		return this.Types[Extension];
+		return this.Types[Extension] || "application/octet-stream";
 	}
 }
 
-export default MimeTypes;
+module.exports = MimeTypes;
