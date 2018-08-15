@@ -121,7 +121,7 @@ class MimeTypes {
 
 	static Get (Extension) {
 
-		return this.Types[Extension] || "application/octet-stream";
+		return Types[Extension] || "application/octet-stream";
 	}
 }
 
