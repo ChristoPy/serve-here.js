@@ -9,7 +9,7 @@ class Server {
 
 		this.Options = {
 
-			RootFolder: Options.folder,
+			RootFolder: Options.root,
 			IndexFile: Options.index || "index.html",
 			Port: Options.port || 8000
 		};
