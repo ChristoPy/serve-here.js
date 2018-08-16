@@ -15,7 +15,7 @@ module.exports.ConfigureFilePath = (Options, FilePath) => {
 
 module.exports.ConfigureHead = FilePath => {
 
-	const FileExtension = String (Path.extname (FilePath)).toLowerCase ();
+	const FileExtension = String (Path.extname (FilePath)).toLowerCase ().replace (".", "");
 
 	return {"Content-Type": MIMETypes.Get (FileExtension)};
 }
