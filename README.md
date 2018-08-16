@@ -5,7 +5,8 @@ Serve static files over HTTP
 # Installation
 
 ```shell
-npm install serve-here.js -g```
+npm install serve-here.js -g
+```
 
 # Importing
 
