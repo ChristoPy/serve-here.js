@@ -1,8 +1,8 @@
 {
   "name": "serve-here.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Serve static files over HTTP",
-  "main": "Index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

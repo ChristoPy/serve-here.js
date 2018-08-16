@@ -1,20 +1,39 @@
 # serve-here.js
+
 Serve static files over HTTP
 
 # Installation
-```npm install serve-here.js --save```
+
+```shell
+npm install serve-here.js -g```
 
 # Usage
+
+Importing
+```javascript
+const ServeHereServer = require ("serve-here.js");
 ```
-// Get the static server.
-const Server = require ("./Server.js");
 
-// Start the server in the current path and on port 3000 (default is 8000).
-Server.Start (__dirname, 3000);
+Running the server
+```javascript
+const Server = new ServeHereServer ();
+Server.Start ();
+```
 
-// Stop the server.
+Configuring the server
+```javascript
+const Server = new ServeHereServer ({
+
+	root: "/my-site",   // Default is "./" (Not required)
+	port: 4000,         // Default is 8000 (Not required)
+	index: "test.html"  // Default is "index.html/" (Not required)
+});
+```
+
+Stoping the server
+```javascript
 Server.Stop ();
 ```
 
-# Dependencies
-none
+# Version
+1.0.2
