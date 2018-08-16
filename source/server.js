@@ -9,7 +9,7 @@ class Server {
 
 		this.Options = {
 
-			RootFolder: Options.root || process.cwd (),
+			RootFolder: process.cwd () + Options.folder || process.cwd (),
 			IndexFile: Options.index || "index.html",
 			Port: Options.port || 8000
 		};
@@ -22,7 +22,6 @@ class Server {
 			const FilePath = ConfigureFilePath (this.Options, Request.url);
 
 			console.log (`[${new Date ().toLocaleString ()}] | [...] ${Request.url}`);
-
 
 			FileSystem.readFile (FilePath, function (SomeError, Data) {
 
@@ -58,7 +57,7 @@ class Server {
 	Start () {
 
 		this.Server.listen (this.Options.Port);
-		console.log (`Server running at port ${this.Options.Port}`);
+		console.log (`Serving files of ${this.Options.RootFolder} at port ${this.Options.Port}`);
 	}
 
 	Stop () {
