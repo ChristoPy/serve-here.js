@@ -1,6 +1,6 @@
 {
   "name": "serve-here.js",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Serve static files over HTTP",
   "main": "index.js",
   "scripts": {
@@ -22,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/ChristoPy/serve-here.js/issues"
   },
-  "homepage": "https://github.com/ChristoPy/serve-here.js#readme"
+  "homepage": "https://github.com/ChristoPy/serve-here.js#readme",
+  "preferGlobal": "true",
+  "bin": {
+    "serve-here": "./bin/index.js"
+  }
 }
