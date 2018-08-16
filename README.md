@@ -7,6 +7,11 @@ Serve static files over HTTP
 ```shell
 npm install serve-here.js -g```
 
+# CLI
+```shell
+serve-here
+```
+
 # Usage
 
 Importing
@@ -36,4 +41,4 @@ Server.Stop ();
 ```
 
 # Version
-1.0.2
+1.1.0
