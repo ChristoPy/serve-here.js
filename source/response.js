@@ -7,8 +7,8 @@ module.exports.ConfigureFilePath = (Options, FilePath) => {
 
 	switch (FilePath) {
 
-		case "/": return `${Options.ServerRootFolder}/${Options.IndexFile}`;
-		default: return (Slash ? `${Options.ServerRootFolder}${FilePath.slice (0, -1)}` : `${Options.ServerRootFolder}${FilePath}`);
+		case "/": return `${Options.RootFolder}/${Options.IndexFile}`;
+		default: return (Slash ? `${Options.RootFolder}${FilePath.slice (0, -1)}` : `${Options.RootFolder}${FilePath}`);
 	}
 }
 
