@@ -9,7 +9,7 @@ class Server {
 
 		this.Options = {
 
-			RootFolder: process.cwd () + Options.folder || process.cwd (),
+			RootFolder: Options.folder ? process.cwd () + Options.folder : process.cwd (),
 			IndexFile: Options.index || "index.html",
 			Port: Options.port || 8000
 		};
