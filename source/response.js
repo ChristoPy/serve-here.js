@@ -1,15 +1,30 @@
 const Path = require ("path");
 const MIMETypes = require ("./mime-types.js");
 
+const HasMaliciousPath = (Options, ReceivedPath) => {
+
+	const HasNullByte = ReceivedPath.indexOf('\0') !== -1;
+	const HasPathTraversal = Path.join(Options.RootFolder, ReceivedPath).indexOf(Options.RootFolder) !== 0;
+
+	if (HasNullByte || HasPathTraversal) {
+		return true;
+	}
+};
 
 module.exports.ConfigureFilePath = (Options, FilePath) => {
 
 	const Slash = FilePath.split ("")[FilePath.split ("").length - 1] === "/";
 
-	switch (FilePath) {
+	if (FilePath === "/") {
+		return `${Options.RootFolder}/${Options.IndexFile}`;
+	} else {
+		const IsMalicious = HasMaliciousPath(Options, FilePath);
 
-		case "/": return `${Options.RootFolder}/${Options.IndexFile}`;
-		default: return (Slash ? `${Options.RootFolder}${FilePath.slice (0, -1)}` : `${Options.RootFolder}${FilePath}`);
+		if (IsMalicious) {
+			return null;
+		} else {
+			return (Slash ? `${Options.RootFolder}${FilePath.slice (0, -1)}` : `${Options.RootFolder}${FilePath}`);
+		}
 	}
 }
 

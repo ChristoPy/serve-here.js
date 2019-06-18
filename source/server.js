@@ -23,6 +23,15 @@ class Server {
 
 			console.log (`[${new Date ().toLocaleString ()}] | [...] ${Request.url}`);
 
+			if (!FilePath) {
+				Response.writeHead (403);
+				Response.end ();
+
+				console.log (`[${new Date ().toLocaleString ()}] | [403] | [${Date.now () - ReceivedRequest}ms]`);
+
+				return;
+			}
+
 			FileSystem.readFile (FilePath, function (SomeError, Data) {
 
 				if (!SomeError) {
