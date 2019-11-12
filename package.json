@@ -28,6 +28,6 @@
     "serve-here": "./bin/index.js"
   },
   "dependencies": {
-    "commander": "^2.17.1"
+    "commander": "^4.0.1"
   }
 }
